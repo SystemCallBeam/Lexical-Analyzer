@@ -10,14 +10,9 @@ public class Main {
 
         try {
             FileReader reader = new FileReader(args[0]);
-
             LexicalAnalyzer lexer = new LexicalAnalyzer(reader);
 
-            while (true) {
-                int token = lexer.yylex();
-                if (token == LexicalAnalyzer.YYEOF) {
-                    break; 
-                }
+            while (lexer.yylex() != -1) {
             }
         } catch (IOException e) {
             e.printStackTrace();
